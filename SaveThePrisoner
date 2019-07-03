@@ -12,20 +12,15 @@ vector<string> split_string(string);
 
 // Complete the saveThePrisoner function below.
 int saveThePrisoner(int n, int m, int s) {
-    int warn = 0; int cnt = 0; int it = s;
-
-    for(cnt = 1; cnt<m; cnt++){
-        if (it == n){
-            it = 1;
+    int a = s+m-1;   
+        if(a>n){
+            if(a%n==0){
+                return n;
+            }
+            return a%n;
         }
-        else{
-            it += 1;
-        }
-    }
-
-    warn = it;
-   
-    return warn;
+      
+         return a;
 }
 
 int main()
@@ -86,3 +81,4 @@ vector<string> split_string(string input_string) {
 
     return splits;
 }
+
