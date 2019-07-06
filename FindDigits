@@ -1,0 +1,53 @@
+/*Problem:
+          Given an int, figure how many of its components are divisible with full number.
+*/
+
+//Solution:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Complete the findDigits function below.
+int findDigits(int n) {
+    string numarr = to_string(n);
+    vector<int> divisors;
+    int cnt = 0;
+
+    for (int i =0; i<numarr.size(); i++){
+        char a = numarr[i];
+        int j = (int)(a) - 48;
+        cout<<j<<endl;
+        divisors.push_back(j);
+    }
+
+    for (int j = 0; j<divisors.size(); j++){
+        int b = divisors[j];
+        if(n%b == 0){
+            cnt += 1;
+        }
+    }
+    return cnt;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int t;
+    cin >> t;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        int n;
+        cin >> n;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        int result = findDigits(n);
+
+        fout << result << "\n";
+    }
+
+    fout.close();
+
+    return 0;
+}
