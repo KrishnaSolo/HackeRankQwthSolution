@@ -4,22 +4,27 @@
 
 //Solution:
 #include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 
 // Complete the findDigits function below.
 int findDigits(int n) {
-    string numarr = to_string(n);
+   string numarr = to_string(n);
     int cnt = 0;
 
     for (int i =0; i<numarr.size(); i++){
         char a = numarr[i];
         int j = (int)(a) - 48;
-        if(n%j == 0){
+        cout<<j<<" "<<n<<endl;
+        if(n==0 || j==0){
+
+        }
+        else if(n%j == 0){
+          cout<<j<<" "<<n<<endl;
             cnt += 1;
         }
     }
-
     return cnt;
 }
 
@@ -45,3 +50,4 @@ int main()
 
     return 0;
 }
+
