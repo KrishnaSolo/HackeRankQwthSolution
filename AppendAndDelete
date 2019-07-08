@@ -1,0 +1,59 @@
+/*Problem:
+          Given two strings and if user can only delete the last character or append string
+          at the end with a character. Determine if the number of operations required match up
+          with what test case provides.
+*/
+
+//Solution:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+// Complete the appendAndDelete function below.
+string appendAndDelete(string s, string t, int k) {
+    string y = "Yes"; string n = "No"; int del =0; int add =0;
+
+    if (s == t){
+        int full = s.size()*2;
+        if(full > k){
+            return n;
+        }
+        else{
+            return y;
+        }
+    }
+
+    if (s.size() > t.size()){
+        for (int i = 0; i< s.size(); i++){
+            for(int j = 0; j<t.size(); j++){
+                if (s[i] != t[j]){
+                    del ++;
+                }
+            }
+        }
+    }
+
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string t;
+    getline(cin, t);
+
+    int k;
+    cin >> k;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    string result = appendAndDelete(s, t, k);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
