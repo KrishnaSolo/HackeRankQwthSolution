@@ -12,13 +12,22 @@ using namespace std;
 long repeatedString(string s, long n) {
     long acnt = 0; long tmp = 0;
 
+    if(n <= s.size()){
+        for(int i = 0; i<s.size()-1; i++){
+            if(s[i] == 'a'){
+            tmp ++;
+            }
+        }
+        return tmp;
+    }
+
     for(int i = 0; i<s.size(); i++){
         if(s[i] == 'a'){
             tmp ++;
         }
     }
 
-    int tst = n/s.size();
+    long tst = n/s.size();
     if(tst == 0){
         for(int i = 0; i<n; i++){
             if(s[i] == 'a'){
@@ -33,18 +42,18 @@ long repeatedString(string s, long n) {
         int a = n-s.size()*tst;
         
         if (a == 0){
-            cout<<n<<endl;
             acnt = tmp;
             return tmp;
         }
         else{
+            //cout<<a<<endl;
             for(int i = 0; i<a; i++){
                 if(s[i] == 'a'){
                     tmp ++;
                 }
+            }
             acnt = tmp;
             return acnt;
-            }
         }
     }
     return acnt;
