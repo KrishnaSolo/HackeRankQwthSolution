@@ -10,6 +10,7 @@ using namespace std;
 vector<string> split_string(string);
 
 // Complete the nonDivisibleSubset function below.
+//use remainder to fix issue
 int nonDivisibleSubset(int k, vector<int> S) {
     map<int,int> subset;
 
